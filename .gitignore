@@ -3,6 +3,9 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+src/Blazor.ClientTimer/wwwroot/TimerCountdown.js
+src/Blazor.ClientTimer/wwwroot/TimerCountdown.js.map
+
 # dotenv files
 .env
 
