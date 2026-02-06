@@ -1,31 +1,37 @@
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
+
+dayjs.extend(duration);
+
 export class TimerCountdownElement extends HTMLElement {
-    /**
-     * Timer instance
-     * @private {number}
-     */
-    _timer;
-    
     constructor() {
         super();
-    }   
+        this.interval = parseInt(this.getAttribute("interval"));
+        this.format = this.getAttribute("format");
+        this.end = dayjs(this.getAttribute("end"));
+    }
     
     connectedCallback() {
-        const end = parseInt(this.getAttribute("max"));
-        const interval = parseInt(this.getAttribute("interval"));
-
-        const dateFormat = new Intl.DateTimeFormat("en-US", {
-            dateStyle: "full",
-            timeStyle: "short",
-            timeZone: "UTC",
-        });
-
+        this.formatDate();
+        
         this._timer = setInterval(() => {
-            this.innerText = dateFormat.format(new Date(end - new Date().getMilliseconds()));
-        }, interval);
+            this.formatDate();
+        }, this.interval);
     }
     
     disconnectedCallback() {
         clearInterval(this._timer);
+    }
+    
+    formatDate() {
+        const now = dayjs();
+        
+        if (this.end.isBefore(now)) {
+            if(this._timer) clearInterval(this._timer);
+            return;
+        }
+        
+        this.innerText = dayjs.duration(this.end.diff(now)).format(this.format);
     }
 }
 
