@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.ClientTimer", "Blazor.ClientTimer\Blazor.ClientTimer.csproj", "{616CBBCC-30EC-483D-8D5A-22A714F3F495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.ClientTimer.Web8", "..\examples\Blazor.ClientTimer.Web8\Blazor.ClientTimer.Web8.csproj", "{E5FB5E2C-B585-48B1-B355-19245EBA48DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{616CBBCC-30EC-483D-8D5A-22A714F3F495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616CBBCC-30EC-483D-8D5A-22A714F3F495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616CBBCC-30EC-483D-8D5A-22A714F3F495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616CBBCC-30EC-483D-8D5A-22A714F3F495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5FB5E2C-B585-48B1-B355-19245EBA48DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5FB5E2C-B585-48B1-B355-19245EBA48DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5FB5E2C-B585-48B1-B355-19245EBA48DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5FB5E2C-B585-48B1-B355-19245EBA48DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+{
+  "name": "blazor.clienttimer",
+  "version": "1.0.0",
+  "description": "countdown custom element",
+  "license": "MIT",
+  "author": "adequate",
+  "type": "module",
+  "main": "TimerCountdown.razor.js",
+  "scripts": {
+    "build": "rolldown -c"
+  },
+  "devDependencies": {
+    "rolldown": "^1.0.0-rc.3"
+  }
+}
