@@ -12,14 +12,14 @@ export class TimerCountdownElement extends HTMLElement {
         super();
         this.interval = parseInt(this.getAttribute("interval"));
         this.format = this.getAttribute("format");
-        this.end = dayjs(this.getAttribute("end"));
+        this.end = dayjs.unix(parseFloat(this.getAttribute("end")));
         this.end.locale(this.locale);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "end":
-                this.end = dayjs(newValue);
+                this.end = dayjs.unix(newValue);
                 break;
             case "interval":
                 this.interval = parseInt(newValue);
