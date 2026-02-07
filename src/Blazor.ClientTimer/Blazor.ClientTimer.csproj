@@ -1,13 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <Title>Blazor.ClientTimer</Title>
         <RepositoryType>git</RepositoryType>
         <PackageTags>blazor,timer,countdown</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>A lightweight Blazor component for client-side countdown timers with customizable formatting.</Description>
+        <Copyright>adequate</Copyright>
+        <Authors>adequate</Authors>
+        <PackageProjectUrl>https://github.com/ilsadq/Blazor.ClientTimer</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/ilsadq/Blazor.ClientTimer/blob/main/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/ilsadq/Blazor.ClientTimer</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <TargetFrameworks>net8.0;net10.0;net9.0</TargetFrameworks>
     </PropertyGroup>
     
     <ItemGroup>
@@ -22,6 +29,11 @@
         <Folder Include="wwwroot\"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath="/" />
+        <None Include="../../LICENSE" Pack="true" PackagePath="/" />
+    </ItemGroup>
+    
     <Target Name="RemoveUnnecessaryFiles" BeforeTargets="PrePack">
         <ItemGroup>
             <Content Remove="TimerCountdown.js"/>
