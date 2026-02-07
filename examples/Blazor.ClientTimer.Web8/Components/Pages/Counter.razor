@@ -5,11 +5,18 @@
 
 <h1>Counter</h1>
 
+<h1>
+    <TimerCountdown End="@_end" Format="HH:mm:ss"/>
+</h1>
+
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    
+    private DateTime _end = DateTime.Today.AddHours(18);
+    
     private int currentCount = 0;
 
     private void IncrementCount()

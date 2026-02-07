@@ -7,6 +7,10 @@
 
 <p>This component demonstrates showing data.</p>
 
+<h1>
+    <TimerCountdown End="@_end" Format="HH:mm:ss" Locale="ru-RU"/>
+</h1>
+
 @if (forecasts == null)
 {
     <p>
@@ -39,6 +43,9 @@ else
 }
 
 @code {
+
+    private DateTime _end = DateTime.Today.AddHours(20);
+    
     private WeatherForecast[]? forecasts;
 
     protected override async Task OnInitializedAsync()
