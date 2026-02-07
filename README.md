@@ -64,3 +64,7 @@ Requires browsers with support for:
 
 - Custom Elements (Web Components)
 - dayjs library (included with the component)
+
+### Preview
+
+![record](./media/Record.gif)
