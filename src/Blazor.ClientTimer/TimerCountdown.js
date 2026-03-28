@@ -13,7 +13,7 @@ export class TimerCountdownElement extends HTMLElement {
         this.interval = parseInt(this.getAttribute("interval"));
         this.format = this.getAttribute("format");
         this.end = dayjs.unix(parseFloat(this.getAttribute("end")));
-        this.end.locale(this.locale);
+        this.end = this.end.locale(this.locale);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -27,19 +27,27 @@ export class TimerCountdownElement extends HTMLElement {
             case "format":
                 this.format = newValue;
                 break;
+            case "locale":
+                this.locale = newValue;
+                this.end = this.end.locale(newValue);
+                break;
         }
         
         this.formatDate();
     }
     
     connectedCallback() {
+        if (!this.isConnected) return;
+        
         if (this._timer) this.clearTimer();
         
-        this.formatDate();
-        
-        this._timer = setInterval(() => {
+        requestAnimationFrame(() => {
             this.formatDate();
-        }, this.interval);
+
+            this._timer = setInterval(() => {
+                this.formatDate();
+            }, this.interval);
+        });
     }
     
     disconnectedCallback() {
@@ -63,4 +71,4 @@ export class TimerCountdownElement extends HTMLElement {
     }
 }
 
-customElements.define("timer-countdown", TimerCountdownElement);
+customElements.define("timer-countdown-element", TimerCountdownElement);

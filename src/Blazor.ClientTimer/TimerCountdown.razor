@@ -1,19 +1,21 @@
 @using System.ComponentModel
+@using System.Globalization
 
-<timer-countdown end="@UnixTimestamp" 
-                 interval="@Interval"
-                 format="@Format"/>
+<timer-countdown-element end="@UnixTimestamp.ToString(CultureInfo.InvariantCulture)"
+                         interval="@Interval"
+                         format="@Format"
+                         locale="@Locale"/>
 
 @code {
 
-    private double UnixTimestamp => (End.ToUniversalTime() - DateTime.UnixEpoch).TotalSeconds;
+    private double UnixTimestamp => (End - DateTime.UnixEpoch).TotalSeconds;
     
     /// <summary>
-    /// The date and time until which the countdown is running.
+    /// The date and time with UTC format until which the countdown is running.
     /// </summary>
-    [Parameter, EditorRequired] 
+    [Parameter, EditorRequired]
     public DateTime End { get; set; }
-    
+
     /// <summary>
     /// The refresh interval for the displayed time in milliseconds.
     /// </summary>
@@ -25,5 +27,10 @@
     /// </summary>
     [Parameter, EditorRequired]
     public string Format { get; set; }
-    
+
+    /// <summary>
+    /// The locale for formatting (e.g. "en", "ru"). Defaults to "en".
+    /// </summary>
+    [Parameter, DefaultValue("en")]
+    public string Locale { get; set; } = "en";
 }
