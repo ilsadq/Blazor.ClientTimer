@@ -57,6 +57,8 @@ export class TimerCountdownElement extends HTMLElement {
     clearTimer() {
         if(this._timer) clearInterval(this._timer);
         this._timer = null;
+        this.innerText = dayjs.duration(0).format(this.format);
+        this.setAttribute("data-expired", "");
     }
     
     formatDate() {
